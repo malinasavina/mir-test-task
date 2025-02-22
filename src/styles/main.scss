@@ -1,4 +1,58 @@
+@font-face {
+  font-family: "Gotham";
+  font-weight: 700;
+  src: local("Gotham"), url("../assets/fonts/Gotham-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Gotham";
+  font-weight: 500;
+  src: local("Gotham"), url("../assets/fonts/Gotham-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Gotham";
+  font-weight: 400;
+  src: local("Gotham"), url("../assets/fonts/Gotham-Book.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Gotham";
+  font-weight: 300;
+  src: local("Gotham"), url("../assets/fonts/Gotham-Light.ttf") format("truetype");
+}
+
+:root {
+  --primary-color-white: #fff;
+  --primary-color-dark: #0d0d0d;
+  --primary-color-gray: #f8f8f8;
+  --primary-color-accent: #f4f0ff;
+
+  --blueberry-color-dark: #4d35af;
+  --blueberry-color-light: #6a50d2;
+
+  --logo-color-red: #e40646;
+  --logo-color-violet: #5b57a2;
+  --logo-color-orange: #ef8019;
+  --logo-color-blue: #0698d6;
+
+  --card-color-red: #ffe0e9;
+  --card-color-violet: #efeeff;
+  --card-color-orange: #ffecdb;
+  --card-color-blue: #ddf5ff;
+
+  --input-color-gray: #8c8c8c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .body {
-  height: 100vh;
-  background-color: khaki;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: "Gotham", sans-serif;
+  font-weight: 400;
 }
