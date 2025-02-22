@@ -32,7 +32,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "styles.css",
+      filename: 'styles.[contenthash].css',
     }),
     new HtmlWebpackPlugin({
       template: './src/index.html'
