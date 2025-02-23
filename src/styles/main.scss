@@ -46,6 +46,22 @@
   --title-font-size: 24px;
   --card-font-size: 14px;
   --card-title-font-size: 18px;
+
+  --x-padding: 20px;
+
+  @media screen and (min-width: 728px) {
+    --title-font-size: 32px;
+    --card-font-size: 16px;
+    --card-title-font-size: 20px;
+
+    //--x-padding: 147px;
+  }
+}
+
+@mixin link-item {
+  background-color: transparent;
+  color: var(--blueberry-color-light);
+  border: 1px solid var(--blueberry-color-light);
 }
 
 * {
@@ -60,38 +76,118 @@
   font-family: "Gotham", sans-serif;
   font-weight: 400;
   font-size: 16px;
-}
 
-.main {
-  padding: 48px 20px;
+  @media screen and (min-width: 728px) {
+    font-size: 18px;
+  }
 }
 
 .hero {
+  padding: 48px var(--x-padding) 0 var(--x-padding);
+  background: linear-gradient(180deg, rgba(234,233,255,1) 0%, rgba(255,255,255,1) 50%);
+
+  @media screen and (min-width: 728px) {
+    padding-top: 64px;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+
+    @media screen and (min-width: 728px) {
+      width: 74%;
+      max-width: 1120px;
+    }
+
+    @media screen and (min-width: 1120px) {
+      flex-direction: row;
+    }
+  }
+
   &__title {
     margin-bottom: 20px;
     font-size: 32px;
     font-weight: 500;
     line-height: 40px;
+
+    @media screen and (min-width: 728px) {
+      font-size: 40px;
+      line-height: 48px;
+    }
   }
 
-  &__button-wrapper {
+  &__paragraph {
+    line-height: 22px;
+
+    @media screen and (min-width: 728px) {
+      line-height: 24px;
+    }
+  }
+
+  &__links-wrapper {
+    display: flex;
+    flex-direction: column;
     margin-top: 32px;
-  }
-}
 
-
-@media screen and (min-width: 1024px) {
-  :root {
-    --title-font-size: 32px;
-    --card-font-size: 16px;
-    --card-title-font-size: 20px;
+    @media screen and (min-width: 728px) {
+      flex-direction: row;
+    }
   }
 
-  .body {
-    font-size: 18px;
+  &__link {
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+      font-weight: 500;
+      color: var(--primary-color-white);
+      text-decoration: none;
+    }
+
+    padding: 10px 0;
+    background-color: var(--blueberry-color-dark);
+    text-align: center;
+    border-radius: 10px;
+    line-height: 24px;
+    white-space: nowrap;
+
+    @media screen and (min-width: 728px) {
+      padding: 11px 24px;
+      font-size: 16px;
+    }
+
+    &_sign-in {
+      margin-top: 20px;
+
+      &:link,
+      &:visited,
+      &:hover,
+      &:active {
+        font-weight: 400;
+        @include link-item();
+      }
+
+      @media screen and (min-width: 728px) {
+        margin: 0 0 0 20px;
+      }
+    }
   }
-}
 
-@media screen and (min-width: 1920px) {
+  &__image-wrapper {
+    width: 100%;
+    max-width: 455px;
+    height: auto;
+    margin: 0 auto;
 
+    @media screen and (min-width: 1120px) {
+      flex-shrink: 0;
+      margin: 0 0 0 20px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    object-fit: contain;
+  }
 }
