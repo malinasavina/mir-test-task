@@ -45,23 +45,36 @@
 
   --input-color-gray: #8c8c8c;
 
-  --title-font-size: 24px;
   --card-font-size: 14px;
   --card-title-font-size: 18px;
 
   --x-padding: 20px;
   --y-padding: 48px;
 
+  --title-margin: 32px;
+
   --content-width: 74%;
   --content-max-width: 1120px;
 
   @media screen and (min-width: 728px) {
-    --title-font-size: 32px;
     --card-font-size: 16px;
     --card-title-font-size: 20px;
 
     --x-padding: 0;
     --y-padding: 64px;
+  }
+}
+
+@mixin section-title {
+  margin-bottom: 32px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 30px;
+
+  @media screen and (min-width: 728px) {
+    margin-bottom: 40px;
+    font-size: 32px;
+    line-height: 40px;
   }
 }
 
@@ -220,22 +233,19 @@
 }
 
 .perks {
-  padding: var(--y-padding) 0 var(--y-padding) var(--x-padding);
-  margin: 0 auto;
 
-  @media screen and (min-width: 728px) {
-    width: var(--content-width);
-    max-width: var(--content-max-width);
+  &__inner {
+    padding: var(--y-padding) 0 var(--y-padding) var(--x-padding);
+    margin: 0 auto;
+
+    @media screen and (min-width: 728px) {
+      width: var(--content-width);
+      max-width: var(--content-max-width);
+    }
   }
 
   &__title {
-    margin-bottom: 32px;
-    font-size: var(--title-font-size);
-    font-weight: 500;
-
-    @media screen and (min-width: 728px) {
-      margin-bottom: 40px;
-    }
+    @include section-title();
   }
 
   &__list {
@@ -244,6 +254,7 @@
     grid-template-rows: 1fr;
     column-gap: 20px;
     padding-right: var(--x-padding);
+    list-style: none;
 
     @include slider();
 
@@ -267,7 +278,6 @@
   }
 
   &__item {
-    list-style: none;
     scroll-snap-align: center;
   }
 
@@ -307,6 +317,59 @@
         text-decoration: none;
         color: var(--link-color-blue);
       }
+    }
+  }
+}
+
+.numbers {
+
+  &__inner {
+    padding: var(--y-padding) var(--x-padding);
+
+    @media screen and (min-width: 728px) {
+      margin: 0 auto;
+      width: var(--content-width);
+      max-width: var(--content-max-width);
+    }
+  }
+
+  &__title {
+    @include section-title();
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    row-gap: 32px;
+    list-style: none;
+
+    @media screen and (min-width: 728px) {
+      grid-template-columns: repeat(2, minmax(268px, 354px));
+      grid-template-rows: repeat(2, 1fr);
+      column-gap: 32px;
+      row-gap: 24px;
+    }
+
+    @media screen and (min-width: 1120px) {
+      grid-template-columns: repeat(auto-fill, 256px);
+      grid-template-rows: repeat(auto-fill, 1fr);
+      row-gap: 32px;
+    }
+  }
+
+  &__stat {
+    margin-bottom: 8px;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40px;
+  }
+
+  &__description {
+    line-height: 22px;
+
+    @media screen and (min-width: 728px) {
+      line-height: 24px;
     }
   }
 }
