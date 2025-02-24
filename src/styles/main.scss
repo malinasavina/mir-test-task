@@ -31,10 +31,10 @@
   --blueberry-color-dark: #4d35af;
   --blueberry-color-light: #6a50d2;
 
-  --logo-color-red: #e40646;
-  --logo-color-violet: #5b57a2;
-  --logo-color-orange: #ef8019;
-  --logo-color-blue: #0698d6;
+  --icon-color-red: #e40646;
+  --icon-color-violet: #5b57a2;
+  --icon-color-orange: #ef8019;
+  --icon-color-blue: #0698d6;
 
   --card-color-red: #ffe0e9;
   --card-color-violet: #efeeff;
@@ -282,7 +282,6 @@
 
   &__card {
     padding: 24px 20px 44px;
-    width: 100%;
     height: 100%;
     background-color: var(--primary-color-gray);
     border-radius: 20px;
@@ -479,6 +478,12 @@
 
   &__inner {
     padding: var(--y-padding) var(--x-padding);
+
+    @media screen and (min-width: 728px) {
+      margin: 0 auto;
+      width: var(--content-width);
+      max-width: var(--content-max-width);
+    }
   }
 
   &__title {
@@ -490,17 +495,130 @@
     grid-template-columns: 1fr;
     gap: 20px;
     list-style: none;
+
+    @media screen and (min-width: 728px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+    }
   }
 
   &__card {
+    height: 100%;
     padding: 24px 20px;
     background-color: var(--primary-color-gray);
     border-radius: 20px;
+
+    @media screen and (min-width: 728px) {
+      display: flex;
+    }
+
+    @media screen and (min-width: 1120px) {
+      cursor: pointer;
+    }
+
+    &_people {
+      .goals__card-icon {
+        fill: var(--icon-color-red);
+      }
+
+      @media screen and (min-width: 1120px) {
+        &:hover {
+          background-color: var(--card-color-red);
+
+          .goals__card-icon-wrapper {
+            background-color: var(--icon-color-red);
+          }
+
+          .goals__card-icon {
+            width: 32px;
+            height: 32px;
+            fill: var(--primary-color-white)
+          }
+        }
+      }
+    }
+
+    &_coins {
+      .goals__card-icon {
+        fill: var(--icon-color-violet);
+      }
+
+      @media screen and (min-width: 1120px) {
+        &:hover {
+          background-color: var(--card-color-violet);
+
+          .goals__card-icon-wrapper {
+            background-color: var(--icon-color-violet);
+          }
+
+          .goals__card-icon {
+            width: 32px;
+            height: 32px;
+            fill: var(--primary-color-white)
+          }
+        }
+      }
+    }
+
+    &_box {
+      .goals__card-icon {
+        fill: var(--icon-color-orange);
+      }
+
+      @media screen and (min-width: 1120px) {
+        &:hover {
+          background-color: var(--card-color-orange);
+
+          .goals__card-icon-wrapper {
+            background-color: var(--icon-color-orange);
+          }
+
+          .goals__card-icon {
+            width: 32px;
+            height: 32px;
+            fill: var(--primary-color-white)
+          }
+        }
+      }
+    }
+
+    &_shopping {
+      .goals__card-icon {
+        fill: var(--icon-color-blue);
+      }
+
+      @media screen and (min-width: 1120px) {
+        &:hover {
+          background-color: var(--card-color-blue);
+
+          .goals__card-icon-wrapper {
+            background-color: var(--icon-color-blue);
+          }
+
+          .goals__card-icon {
+            width: 32px;
+            height: 32px;
+            fill: var(--primary-color-white)
+          }
+        }
+      }
+    }
 
     &-icon-wrapper {
       width: 48px;
       height: 48px;
       margin-bottom: 16px;
+
+      @media screen and (min-width: 728px) {
+        margin: 0 16px 0 0;
+      }
+
+      @media screen and (min-width: 1120px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+      }
     }
 
     &-title {
@@ -512,6 +630,7 @@
 
     &-text {
       font-size: var(--card-font-size);
+      line-height: 22px;
 
       &:last-child {
         margin-top: 12px;
