@@ -51,6 +51,7 @@
   --x-padding: 20px;
   --y-padding: 48px;
 
+  --title-font-size: 24px;
   --title-margin: 32px;
 
   --content-width: 71%;
@@ -62,18 +63,19 @@
 
     --x-padding: 0;
     --y-padding: 64px;
+
+    --title-font-size: 32px;
   }
 }
 
 @mixin section-title {
   margin-bottom: 32px;
   font-weight: 500;
-  font-size: 24px;
+  font-size: var(--title-font-size);
   line-height: 30px;
 
   @media screen and (min-width: 728px) {
     margin-bottom: 40px;
-    font-size: 32px;
     line-height: 40px;
   }
 }
@@ -411,12 +413,11 @@
 
   &__title {
     margin-bottom: 20px;
-    font-size: 24px;
+    font-size: var(--title-font-size);
     font-weight: 500;
     line-height: 30px;
 
     @media screen and (min-width: 728px) {
-      font-size: 32px;
       line-height: 40px;
     }
   }
@@ -634,6 +635,81 @@
 
       &:last-child {
         margin-top: 12px;
+      }
+    }
+  }
+}
+
+.cases {
+
+  &__inner {
+    padding-top: var(--y-padding);
+  }
+
+  &__title {
+    padding: 0 var(--x-padding);
+    font-size: var(--title-font-size);
+    font-weight: 500;
+    line-height: 30px;
+
+    @media screen and (min-width: 728px) {
+      margin: 0 auto;
+      width: var(--content-width);
+      max-width: var(--content-max-width);
+    }
+  }
+
+  &__list {
+    display: flex;
+    gap: 20px;
+    align-items: stretch;
+    padding: 32px var(--x-padding) var(--y-padding);
+    list-style: none;
+
+    @include slider();
+
+    @media screen and (min-width: 728px) {
+      padding: 40px 14% var(--y-padding);
+    }
+  }
+
+  &__card {
+    min-width: 268px;
+    height: 100%;
+    padding: 24px 20px;
+    border-radius: 20px;
+    background-color: var(--primary-color-white);
+    box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.08);
+
+    @media screen and (min-width: 728px) {
+      min-width: 292px;
+    }
+
+    @media screen and (min-width: 1120px) {
+      min-width: 360px;
+    }
+
+    &-icon {
+      margin-bottom: 16px;
+    }
+
+    &-title {
+      margin-bottom: 16px;
+      font-size: var(--card-title-font-size);
+      font-weight: 500;
+      line-height: 26px;
+    }
+
+    &-list {
+      font-size: var(--card-font-size);
+      line-height: 22px;
+      list-style: none;
+    }
+
+    &-item {
+
+      &:not(:last-child) {
+        margin-bottom: 8px;
       }
     }
   }
