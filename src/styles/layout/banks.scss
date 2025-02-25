@@ -1,0 +1,152 @@
+@use "../base/mixins" as mixins;
+
+.banks {
+
+  &__inner {
+    padding: var(--y-padding) var(--x-padding);
+
+    @media screen and (min-width: 728px) {
+      margin: 0 auto;
+      width: var(--content-width);
+      max-width: var(--content-max-width);
+    }
+  }
+
+  &__title {
+    @include mixins.section-title();
+
+    @media screen and (min-width: 728px) {
+      text-align: center;
+    }
+  }
+
+  &__input-wrapper {
+    display: flex;
+    align-items: center;
+    max-width: 550px;
+    margin: 0 auto 32px auto;
+    padding: 18px;
+    border-bottom: 2px solid #e5e5e5;
+  }
+
+  &__search-icon {
+    margin-right: 10px;
+  }
+
+  &__input-container {
+    position: relative;
+    flex-grow: 1;
+  }
+
+  &__input {
+    width: 100%;
+    font-family: "Gotham", sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+    color: var(--primary-color-dark);
+    border: none;
+    outline: none;
+    background: transparent;
+
+    &::placeholder {
+      color: var(--input-color-gray);
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  &__suggestions {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    list-style: none;
+    border: 1px solid var(--input-color-gray);
+    color: var(--input-color-gray);
+    background: var(--primary-color-white);
+
+    &_active {
+      display: block;
+    }
+  }
+
+  &__suggestion {
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--primary-color-gray);
+      color: var(--primary-color-dark);
+    }
+  }
+
+  &__list {
+    display: none;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 16px;
+    list-style: none;
+
+    &_active {
+      display: grid;
+    }
+
+    @media screen and (min-width: 728px) {
+      margin: 0 auto;
+      grid-template-columns: repeat(4, minmax(100px, 170px));
+      grid-template-rows: repeat(3, 1fr);
+    }
+
+    @media screen and (min-width: 1120px) {
+      grid-template-columns: repeat(6, minmax(100px, 170px));
+      grid-template-rows: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+
+  &__item {
+    display: none;
+
+    &_active {
+      display: block;
+    }
+  }
+
+  &__card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    max-height: 80px;
+    padding: 24px 18px;
+    background-color: var(--primary-color-gray);
+    border-radius: 6px;
+    object-fit: contain;
+  }
+
+  &__logo {
+    width: 100%;
+    max-width: 130px;
+  }
+
+  &__no-results {
+    display: none;
+    margin-top: 40px;
+    text-align: center;
+    color: var(--input-color-gray);
+
+    &_active {
+      display: block;
+    }
+  }
+}

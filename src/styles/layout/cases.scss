@@ -1,0 +1,91 @@
+@use "../base/mixins" as mixins;
+
+.cases {
+
+  &__inner {
+    padding-top: var(--y-padding);
+  }
+
+  &__title {
+    padding: 0 var(--x-padding);
+    font-size: var(--title-font-size);
+    font-weight: 500;
+    line-height: 30px;
+
+    @media screen and (min-width: 728px) {
+      margin: 0 auto;
+      width: var(--content-width);
+      max-width: var(--content-max-width);
+    }
+  }
+
+  &__list {
+    display: flex;
+    gap: 20px;
+    align-items: stretch;
+    padding: 32px var(--x-padding) var(--y-padding);
+    list-style: none;
+
+    @include mixins.slider();
+
+    @media screen and (min-width: 728px) {
+      position: relative;
+      margin: 0 auto;
+      padding: 40px 20px var(--y-padding) 20px;
+      width: var(--content-width);
+      max-width: var(--content-max-width);
+      cursor: pointer;
+
+      &::before {
+        position: absolute;
+        content: "";
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 50px;
+        background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.1) 50%);
+      }
+    }
+  }
+
+  &__card {
+    min-width: 268px;
+    height: 100%;
+    padding: 24px 20px;
+    border-radius: 20px;
+    background-color: var(--primary-color-white);
+    box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.08);
+
+    @media screen and (min-width: 728px) {
+      min-width: 292px;
+    }
+
+    @media screen and (min-width: 1120px) {
+      min-width: 360px;
+    }
+
+    &-icon {
+      margin-bottom: 16px;
+    }
+
+    &-title {
+      margin-bottom: 16px;
+      font-size: var(--card-title-font-size);
+      font-weight: 500;
+      line-height: 26px;
+    }
+
+    &-list {
+      font-size: var(--card-font-size);
+      line-height: 22px;
+      list-style: none;
+    }
+
+    &-item {
+
+      &:not(:last-child) {
+        margin-bottom: 8px;
+      }
+    }
+  }
+}
