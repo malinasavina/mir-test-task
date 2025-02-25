@@ -70,8 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
           suggestion.textContent = bank.name;
 
           suggestion.addEventListener('click', () => {
-            searchInput.value = bank.name;
-            filterBanks();
+            showChosenBank(bank.name);
+            clearInput();
             suggestionsList.classList.remove('banks__suggestions_active');
           });
 
@@ -88,6 +88,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const clearInput = () => {
     searchInput.value = '';
     suggestionsList.classList.remove('banks__suggestions_active');
+  }
+
+  const showChosenBank = bankName => {
+    for (let bank of banksList) {
+      if (bank.name === bankName) {
+        bank.element.classList.add('banks__item_active');
+      } else {
+        bank.element.classList.remove('banks__item_active');
+      }
+    }
+
+    banksContainer.classList.add('banks__list_active');
+    noResultsBlock.classList.remove('banks__no-results_active');
   }
 
   const showAllBanks = () => {
