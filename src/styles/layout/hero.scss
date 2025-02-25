@@ -54,21 +54,21 @@
   }
 
   &__link {
-    &:link,
-    &:visited,
-    &:hover,
-    &:active {
-      font-weight: 500;
-      color: var(--primary-color-white);
-      text-decoration: none;
-    }
-
     padding: 10px 0;
     background-color: var(--blueberry-color-dark);
     text-align: center;
     border-radius: 10px;
     line-height: 24px;
+    font-weight: 500;
     white-space: nowrap;
+
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+      color: var(--primary-color-white);
+      text-decoration: none;
+    }
 
     @media screen and (min-width: 728px) {
       padding: 11px 24px;
@@ -77,13 +77,15 @@
 
     &_sign-in {
       margin-top: 20px;
+      font-weight: 400;
+      background-color: transparent;
+      border: 1px solid var(--blueberry-color-light);
 
       &:link,
       &:visited,
       &:hover,
       &:active {
-        font-weight: 400;
-        @include mixins.link-item();
+        color: var(--blueberry-color-light);
       }
 
       @media screen and (min-width: 728px) {

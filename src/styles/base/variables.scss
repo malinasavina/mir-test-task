@@ -1,0 +1,45 @@
+:root {
+  --primary-color-white: #fff;
+  --primary-color-dark: #0d0d0d;
+  --primary-color-gray: #f8f8f8;
+  --primary-color-accent: #f4f0ff;
+
+  --blueberry-color-dark: #4d35af;
+  --blueberry-color-light: #6a50d2;
+
+  --icon-color-red: #e40646;
+  --icon-color-violet: #5b57a2;
+  --icon-color-orange: #ef8019;
+  --icon-color-blue: #0698d6;
+
+  --card-color-red: #ffe0e9;
+  --card-color-violet: #efeeff;
+  --card-color-orange: #ffecdb;
+  --card-color-blue: #ddf5ff;
+
+  --link-color-blue: #4589e8;
+
+  --input-color-gray: #8c8c8c;
+
+  --card-font-size: 14px;
+  --card-title-font-size: 18px;
+
+  --x-padding: 20px;
+  --y-padding: 48px;
+
+  --title-font-size: 24px;
+  --title-margin: 32px;
+
+  --content-width: 71%;
+  --content-max-width: 1120px;
+
+  @media screen and (min-width: 728px) {
+    --card-font-size: 16px;
+    --card-title-font-size: 20px;
+
+    --x-padding: 0;
+    --y-padding: 64px;
+
+    --title-font-size: 32px;
+  }
+}

@@ -1,0 +1,31 @@
+@mixin section-title {
+  margin-bottom: 32px;
+  font-weight: 500;
+  font-size: var(--title-font-size);
+  line-height: 30px;
+
+  @media screen and (min-width: 728px) {
+    margin-bottom: 40px;
+    line-height: 40px;
+  }
+}
+
+@mixin slider {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* Для iOS */
+
+  /* Скрываем скроллбар */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+}
+
+@mixin reset-slider {
+  overflow: visible; /* Отключаем горизонтальный скролл */
+  scroll-snap-type: none; /* Отключаем привязку к карточкам */
+}

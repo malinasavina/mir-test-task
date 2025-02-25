@@ -13,17 +13,17 @@ document.addEventListener('DOMContentLoaded', () => {
     element: bank
   }));
 
-  searchInput.addEventListener('input', () => {
-    showSuggestions();
-  });
-
-  searchInput.addEventListener('keydown', e => {
-    if (searchInput.value) {
+  searchInput.addEventListener('keydown', function (e) {
+    if (this.value) {
       if (e.key === 'Enter') {
         filterBanks();
         clearInput();
       }
     }
+  });
+
+  searchInput.addEventListener('input', () => {
+    showSuggestions();
   });
 
   clearInputBtn.addEventListener('click', () => {
@@ -35,14 +35,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const query = searchInput.value.toLowerCase().trim();
     let isBankFound = false;
 
-    banksList.forEach(bank => {
+    for (let bank of banksList) {
       if (bank.name.includes(query)) {
         bank.element.classList.add('banks__item_active');
         isBankFound = true;
       } else {
         bank.element.classList.remove('banks__item_active');
       }
-    });
+    }
 
     if (isBankFound) {
       banksContainer.classList.add('banks__list_active');
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
       banksContainer.classList.remove('banks__list_active');
       noResultsBlock.classList.add('banks__no-results_active');
     }
-  }
+  };
 
   const showSuggestions = () => {
     suggestionsList.innerHTML = '';
@@ -83,12 +83,12 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       suggestionsList.classList.remove('banks__suggestions_active');
     }
-  }
+  };
 
   const clearInput = () => {
     searchInput.value = '';
     suggestionsList.classList.remove('banks__suggestions_active');
-  }
+  };
 
   const showChosenBank = bankName => {
     for (let bank of banksList) {
@@ -101,15 +101,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     banksContainer.classList.add('banks__list_active');
     noResultsBlock.classList.remove('banks__no-results_active');
-  }
+  };
 
   const showAllBanks = () => {
-    banksContainer.classList.add('banks__list_active');
-
     banksList.forEach(bank => {
       bank.element.classList.add('banks__item_active')
     });
 
+    banksContainer.classList.add('banks__list_active');
     noResultsBlock.classList.remove('banks__no-results_active');
-  }
+  };
 });
