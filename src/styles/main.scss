@@ -673,7 +673,22 @@
     @include slider();
 
     @media screen and (min-width: 728px) {
-      padding: 40px 14% var(--y-padding);
+      position: relative;
+      margin: 0 auto;
+      padding: 40px 20px var(--y-padding) 20px;
+      width: var(--content-width);
+      max-width: var(--content-max-width);
+      cursor: pointer;
+
+      &::before {
+        position: absolute;
+        content: "";
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 50px;
+        background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.1) 50%);
+      }
     }
   }
 
@@ -835,8 +850,13 @@
     margin-right: 10px;
   }
 
-  &__input {
+  &__input-container {
+    position: relative;
     flex-grow: 1;
+  }
+
+  &__input {
+    width: 100%;
     font-family: "Gotham", sans-serif;
     font-size: 16px;
     line-height: 22px;
@@ -862,12 +882,41 @@
     cursor: pointer;
   }
 
+  &__suggestions {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    list-style: none;
+    border: 1px solid var(--input-color-gray);
+    color: var(--input-color-gray);
+    background: var(--primary-color-white);
+
+    &_active {
+      display: block;
+    }
+  }
+
+  &__suggestion {
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--primary-color-gray);
+      color: var(--primary-color-dark);
+    }
+  }
+
   &__list {
-    display: grid;
+    display: none;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(6, 1fr);
     gap: 16px;
     list-style: none;
+
+    &_active {
+      display: grid;
+    }
 
     @media screen and (min-width: 728px) {
       margin: 0 auto;
@@ -879,6 +928,14 @@
       grid-template-columns: repeat(6, minmax(100px, 170px));
       grid-template-rows: repeat(2, 1fr);
       gap: 20px;
+    }
+  }
+
+  &__item {
+    display: none;
+
+    &_active {
+      display: block;
     }
   }
 
@@ -897,5 +954,16 @@
   &__logo {
     width: 100%;
     max-width: 130px;
+  }
+
+  &__no-results {
+    display: none;
+    margin-top: 40px;
+    text-align: center;
+    color: var(--input-color-gray);
+
+    &_active {
+      display: block;
+    }
   }
 }

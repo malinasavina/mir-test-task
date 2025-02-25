@@ -297,75 +297,81 @@
           <svg class="banks__search-icon" width="20" height="20" viewBox="0 0 20 20">
             <use href="assets/icons/sprite.svg#search-icon"></use>
           </svg>
-          <input class="banks__input" type="text" placeholder="Поиск">
-          <button class="banks__button">
+          <div class="banks__input-container">
+            <input class="banks__input" id="js-banks-search" type="text" placeholder="Поиск">
+            <ul class="banks__suggestions" id="js-banks-suggestions">
+              <li class="banks__suggestion">test</li>
+            </ul>
+          </div>
+          <button class="banks__button" id="js-clear-input-button">
             <svg class="banks__close-icon" width="10" height="11" viewBox="0 0 10 11">
               <use href="assets/icons/sprite.svg#close-icon"></use>
             </svg>
           </button>
         </div>
-        <ul class="banks__list">
-          <li class="banks__item">
+        <ul class="banks__list banks__list_active" id="js-banks-list">
+          <li class="banks__item banks__item_active js-bank-item" data-name="Сбербанк">
             <div class="banks__card">
               <img class="banks__logo" src="assets/images/bank-1.png" alt="Логотип Сбера">
             </div>
           </li>
-          <li class="banks__item">
+          <li class="banks__item banks__item_active js-bank-item" data-name="ВТБ">
             <div class="banks__card">
               <img class="banks__logo" src="assets/images/bank-2.png" alt="Логотип ВТБ">
             </div>
           </li>
-          <li class="banks__item">
+          <li class="banks__item banks__item_active js-bank-item" data-name="Почта Банк">
             <div class="banks__card">
               <img class="banks__logo" src="assets/images/bank-3.png" alt="Логотип Почта Банка">
             </div>
           </li>
-          <li class="banks__item">
+          <li class="banks__item banks__item_active js-bank-item" data-name="Тинькофф">
             <div class="banks__card">
               <img class="banks__logo" src="assets/images/bank-4.png" alt="Логотип Тинькофф">
             </div>
           </li>
-          <li class="banks__item">
+          <li class="banks__item banks__item_active js-bank-item" data-name="Открытие Банк">
             <div class="banks__card">
               <img class="banks__logo" src="assets/images/bank-5.png" alt="Логотип Банка Открытие">
             </div>
           </li>
-          <li class="banks__item">
+          <li class="banks__item banks__item_active js-bank-item" data-name="Газпромбанк">
             <div class="banks__card">
               <img class="banks__logo" src="assets/images/bank-6.png" alt="Логотип Газпромбанка">
             </div>
           </li>
-          <li class="banks__item">
+          <li class="banks__item banks__item_active js-bank-item" data-name="Россия Банк">
             <div class="banks__card">
               <img class="banks__logo" src="assets/images/bank-7.png" alt="Логотип Банка Россия">
             </div>
           </li>
-          <li class="banks__item">
+          <li class="banks__item banks__item_active js-bank-item" data-name="РНКБ">
             <div class="banks__card">
               <img class="banks__logo" src="assets/images/bank-8.png" alt="Логотип РНКБ">
             </div>
           </li>
-          <li class="banks__item">
+          <li class="banks__item banks__item_active js-bank-item" data-name="Русский Стандарт Банк">
             <div class="banks__card">
               <img class="banks__logo" src="assets/images/bank-9.png" alt="Логотип Банка Русский Стандарт">
             </div>
           </li>
-          <li class="banks__item">
+          <li class="banks__item banks__item_active js-bank-item" data-name="Альфа-Банк">
             <div class="banks__card">
               <img class="banks__logo" src="assets/images/bank-10.png" alt="Логотип Альфа-Банка">
             </div>
           </li>
-          <li class="banks__item">
+          <li class="banks__item banks__item_active js-bank-item" data-name="Россельхозбанк">
             <div class="banks__card">
               <img class="banks__logo" src="assets/images/bank-11.png" alt="Логотип Россельхозбанка">
             </div>
           </li>
-          <li class="banks__item">
+          <li class="banks__item banks__item_active js-bank-item" data-name="Московский Кредитный Банк">
             <div class="banks__card">
               <img class="banks__logo" src="assets/images/bank-12.png" alt="Логотип Московского Кредитного Банка">
             </div>
           </li>
         </ul>
+        <p class="banks__no-results" id="js-no-results">По Вашему запросу ничего не&nbsp;найдено</p>
       </div>
     </section>
   </main>
