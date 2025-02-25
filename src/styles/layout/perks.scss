@@ -16,9 +16,8 @@
   }
 
   &__list {
-    display: grid;
-    grid-template-columns: repeat(4, 268px);
-    column-gap: 20px;
+    display: flex;
+    gap: 20px;
     padding-right: var(--x-padding);
     list-style: none;
 
@@ -26,17 +25,14 @@
 
 
     @media screen and (min-width: var.$tablet-breakpoint) {
-      grid-template-columns: repeat(2, minmax(268px, 354px));
-      grid-template-rows: repeat(2, 1fr);
-      gap: 20px;
+      flex-wrap: wrap;
       padding: 0;
 
       @include mixins.reset-slider();
     }
 
     @media screen and (min-width: var.$desktop-breakpoint) {
-      grid-template-columns: repeat(4, 265px);
-      grid-template-rows: 1fr;
+      flex-wrap: nowrap;
       cursor: pointer;
 
       @include mixins.slider();
@@ -45,6 +41,17 @@
 
   &__item {
     scroll-snap-align: center;
+    max-width: 268px;
+    flex-shrink: 0;
+
+    @media screen and (min-width: var.$tablet-breakpoint) {
+      max-width: 354px;
+      width: calc(50% - 20px);
+    }
+
+    @media screen and (min-width: var.$desktop-breakpoint) {
+      width: 265px;
+    }
   }
 
   &__card {

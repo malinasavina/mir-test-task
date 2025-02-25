@@ -78,14 +78,15 @@
   }
 
   &__image-wrapper {
-    width: 100%;
-    min-width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     max-width: 322px;
-    object-fit: contain;
     margin: 0 auto;
   }
 
   &__image {
     width: 100%;
+    object-fit: contain;
   }
 }

@@ -16,14 +16,24 @@
   }
 
   &__list {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
     list-style: none;
 
     @media screen and (min-width: var.$tablet-breakpoint) {
+      display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+
+  &__item {
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+
+      @media screen and (min-width: var.$tablet-breakpoint) {
+        margin: 0;
+      }
     }
   }
 
@@ -32,6 +42,7 @@
     padding: 24px 20px;
     background-color: var(--primary-color-gray);
     border-radius: 20px;
+    transition: background-color .2s;
 
     @media screen and (min-width: var.$tablet-breakpoint) {
       display: flex;
@@ -55,9 +66,8 @@
           }
 
           .goals__card-icon {
-            width: 32px;
-            height: 32px;
-            fill: var(--primary-color-white)
+            transform: scale(67%, 67%);
+            fill: var(--primary-color-white);
           }
         }
       }
@@ -77,9 +87,8 @@
           }
 
           .goals__card-icon {
-            width: 32px;
-            height: 32px;
-            fill: var(--primary-color-white)
+            transform: scale(67%, 67%);
+            fill: var(--primary-color-white);
           }
         }
       }
@@ -99,9 +108,8 @@
           }
 
           .goals__card-icon {
-            width: 32px;
-            height: 32px;
-            fill: var(--primary-color-white)
+            transform: scale(67%, 67%);
+            fill: var(--primary-color-white);
           }
         }
       }
@@ -121,9 +129,8 @@
           }
 
           .goals__card-icon {
-            width: 32px;
-            height: 32px;
-            fill: var(--primary-color-white)
+            transform: scale(67%, 67%);
+            fill: var(--primary-color-white);
           }
         }
       }
@@ -133,6 +140,7 @@
       width: 48px;
       height: 48px;
       margin-bottom: 16px;
+      transition: background-color .2s;
 
       @media screen and (min-width: var.$tablet-breakpoint) {
         margin: 0 16px 0 0;
@@ -144,6 +152,10 @@
         align-items: center;
         border-radius: 8px;
       }
+    }
+
+    &-icon {
+      transition: transform .2s;
     }
 
     &-title {
