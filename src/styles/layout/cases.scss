@@ -1,4 +1,5 @@
 @use "../base/mixins" as mixins;
+@use "../base/variables" as var;
 
 .cases {
 
@@ -12,10 +13,8 @@
     font-weight: 500;
     line-height: 30px;
 
-    @media screen and (min-width: 728px) {
-      margin: 0 auto;
-      width: var(--content-width);
-      max-width: var(--content-max-width);
+    @media screen and (min-width: var.$tablet-breakpoint) {
+      @include mixins.content-width;
     }
   }
 
@@ -28,23 +27,11 @@
 
     @include mixins.slider();
 
-    @media screen and (min-width: 728px) {
-      position: relative;
-      margin: 0 auto;
+    @media screen and (min-width: var.$tablet-breakpoint) {
       padding: 40px 20px var(--y-padding) 20px;
-      width: var(--content-width);
-      max-width: var(--content-max-width);
       cursor: pointer;
 
-      &::before {
-        position: absolute;
-        content: "";
-        left: 0;
-        top: 0;
-        height: 100%;
-        width: 50px;
-        background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.1) 50%);
-      }
+      @include mixins.content-width;
     }
   }
 
@@ -56,11 +43,11 @@
     background-color: var(--primary-color-white);
     box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.08);
 
-    @media screen and (min-width: 728px) {
+    @media screen and (min-width: var.$tablet-breakpoint) {
       min-width: 292px;
     }
 
-    @media screen and (min-width: 1120px) {
+    @media screen and (min-width: var.$desktop-breakpoint) {
       min-width: 360px;
     }
 
@@ -70,13 +57,13 @@
 
     &-title {
       margin-bottom: 16px;
-      font-size: var(--card-title-font-size);
+      font-size: 20px;
       font-weight: 500;
       line-height: 26px;
     }
 
     &-list {
-      font-size: var(--card-font-size);
+      font-size: 16px;
       line-height: 22px;
       list-style: none;
     }

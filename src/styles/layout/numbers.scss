@@ -1,14 +1,13 @@
 @use "../base/mixins" as mixins;
+@use "../base/variables" as var;
 
 .numbers {
 
   &__inner {
     padding: var(--y-padding) var(--x-padding);
 
-    @media screen and (min-width: 728px) {
-      margin: 0 auto;
-      width: var(--content-width);
-      max-width: var(--content-max-width);
+    @media screen and (min-width: var.$tablet-breakpoint) {
+      @include mixins.content-width;
     }
   }
 
@@ -22,13 +21,13 @@
     gap: 32px;
     list-style: none;
 
-    @media screen and (min-width: 728px) {
+    @media screen and (min-width: var.$tablet-breakpoint) {
       flex-direction: row;
       flex-wrap: wrap;
       column-gap: 24px;
     }
 
-    @media screen and (min-width: 1120px) {
+    @media screen and (min-width: var.$desktop-breakpoint) {
       flex-wrap: nowrap;
       column-gap: 32px;
     }
@@ -36,12 +35,12 @@
 
   &__item {
 
-    @media screen and (min-width: 728px) {
+    @media screen and (min-width: var.$tablet-breakpoint) {
       width: calc(50% - 24px);
       max-width: 348px;
     }
 
-    @media screen and (min-width: 1120px) {
+    @media screen and (min-width: var.$desktop-breakpoint) {
       width: auto;
       flex: 1;
     }
@@ -53,13 +52,5 @@
     font-weight: 700;
     line-height: 40px;
     white-space: nowrap;
-  }
-
-  &__description {
-    line-height: 22px;
-
-    @media screen and (min-width: 728px) {
-      line-height: 24px;
-    }
   }
 }

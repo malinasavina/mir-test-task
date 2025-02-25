@@ -1,14 +1,13 @@
 @use "../base/mixins" as mixins;
+@use "../base/variables" as var;
 
 .perks {
 
   &__inner {
     padding: var(--y-padding) 0 var(--y-padding) var(--x-padding);
-    margin: 0 auto;
 
-    @media screen and (min-width: 728px) {
-      width: var(--content-width);
-      max-width: var(--content-max-width);
+    @media screen and (min-width: var.$tablet-breakpoint) {
+      @include mixins.content-width;
     }
   }
 
@@ -26,7 +25,7 @@
     @include mixins.slider();
 
 
-    @media screen and (min-width: 728px) {
+    @media screen and (min-width: var.$tablet-breakpoint) {
       grid-template-columns: repeat(2, minmax(268px, 354px));
       grid-template-rows: repeat(2, 1fr);
       gap: 20px;
@@ -35,7 +34,7 @@
       @include mixins.reset-slider();
     }
 
-    @media screen and (min-width: 1120px) {
+    @media screen and (min-width: var.$desktop-breakpoint) {
       grid-template-columns: repeat(4, 265px);
       grid-template-rows: 1fr;
       cursor: pointer;
@@ -54,7 +53,7 @@
     background-color: var(--primary-color-gray);
     border-radius: 20px;
 
-    @media screen and (min-width: 728px) {
+    @media screen and (min-width: var.$tablet-breakpoint) {
       padding: 24px 20px;
     }
 
@@ -62,14 +61,15 @@
       margin: 16px 0;
       font-size: var(--card-title-font-size);
       font-weight: 500;
-      line-height: 24px;
+      line-height: var(--line-height);
     }
 
     &-text {
-      font-size: var(--card-font-size);
+      font-size: 14px;
       line-height: 20px;
 
-      @media screen and (min-width: 728px) {
+      @media screen and (min-width: var.$tablet-breakpoint) {
+        font-size: 16px;
         line-height: 22px;
       }
     }

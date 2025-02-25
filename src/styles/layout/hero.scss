@@ -1,24 +1,23 @@
 @use "../base/mixins" as mixins;
+@use "../base/variables" as var;
 
 .hero {
   padding: var(--y-padding) var(--x-padding);
   background: linear-gradient(180deg, rgba(234,233,255,1) 0%, rgba(255,255,255,1) 50%);
 
-  @media screen and (min-width: 728px) {
+  @media screen and (min-width: var.$tablet-breakpoint) {
     padding: var(--y-padding) 0;
   }
 
   &__inner {
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
 
-    @media screen and (min-width: 728px) {
-      width: var(--content-width);
-      max-width: var(--content-max-width);
+    @media screen and (min-width: var.$tablet-breakpoint) {
+      @include mixins.content-width;
     }
 
-    @media screen and (min-width: 1120px) {
+    @media screen and (min-width: var.$desktop-breakpoint) {
       flex-direction: row;
     }
   }
@@ -29,17 +28,9 @@
     font-weight: 500;
     line-height: 40px;
 
-    @media screen and (min-width: 728px) {
+    @media screen and (min-width: var.$tablet-breakpoint) {
       font-size: 40px;
       line-height: 48px;
-    }
-  }
-
-  &__paragraph {
-    line-height: 22px;
-
-    @media screen and (min-width: 728px) {
-      line-height: 24px;
     }
   }
 
@@ -48,7 +39,7 @@
     flex-direction: column;
     margin-top: 32px;
 
-    @media screen and (min-width: 728px) {
+    @media screen and (min-width: var.$tablet-breakpoint) {
       flex-direction: row;
     }
   }
@@ -70,7 +61,7 @@
       text-decoration: none;
     }
 
-    @media screen and (min-width: 728px) {
+    @media screen and (min-width: var.$tablet-breakpoint) {
       padding: 11px 24px;
       font-size: 16px;
     }
@@ -88,7 +79,7 @@
         color: var(--blueberry-color-light);
       }
 
-      @media screen and (min-width: 728px) {
+      @media screen and (min-width: var.$tablet-breakpoint) {
         margin: 0 0 0 20px;
       }
     }
@@ -100,7 +91,7 @@
     height: auto;
     margin: 0 auto;
 
-    @media screen and (min-width: 1120px) {
+    @media screen and (min-width: var.$desktop-breakpoint) {
       flex-shrink: 0;
       margin: 0 0 0 20px;
     }

@@ -1,14 +1,13 @@
 @use "../base/mixins" as mixins;
+@use "../base/variables" as var;
 
 .goals {
 
   &__inner {
     padding: var(--y-padding) var(--x-padding);
 
-    @media screen and (min-width: 728px) {
-      margin: 0 auto;
-      width: var(--content-width);
-      max-width: var(--content-max-width);
+    @media screen and (min-width: var.$tablet-breakpoint) {
+      @include mixins.content-width;
     }
   }
 
@@ -22,7 +21,7 @@
     gap: 20px;
     list-style: none;
 
-    @media screen and (min-width: 728px) {
+    @media screen and (min-width: var.$tablet-breakpoint) {
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: repeat(2, 1fr);
     }
@@ -34,11 +33,11 @@
     background-color: var(--primary-color-gray);
     border-radius: 20px;
 
-    @media screen and (min-width: 728px) {
+    @media screen and (min-width: var.$tablet-breakpoint) {
       display: flex;
     }
 
-    @media screen and (min-width: 1120px) {
+    @media screen and (min-width: var.$desktop-breakpoint) {
       cursor: pointer;
     }
 
@@ -47,7 +46,7 @@
         fill: var(--icon-color-red);
       }
 
-      @media screen and (min-width: 1120px) {
+      @media screen and (min-width: var.$desktop-breakpoint) {
         &:hover {
           background-color: var(--card-color-red);
 
@@ -69,7 +68,7 @@
         fill: var(--icon-color-violet);
       }
 
-      @media screen and (min-width: 1120px) {
+      @media screen and (min-width: var.$desktop-breakpoint) {
         &:hover {
           background-color: var(--card-color-violet);
 
@@ -91,7 +90,7 @@
         fill: var(--icon-color-orange);
       }
 
-      @media screen and (min-width: 1120px) {
+      @media screen and (min-width: var.$desktop-breakpoint) {
         &:hover {
           background-color: var(--card-color-orange);
 
@@ -113,7 +112,7 @@
         fill: var(--icon-color-blue);
       }
 
-      @media screen and (min-width: 1120px) {
+      @media screen and (min-width: var.$desktop-breakpoint) {
         &:hover {
           background-color: var(--card-color-blue);
 
@@ -135,11 +134,11 @@
       height: 48px;
       margin-bottom: 16px;
 
-      @media screen and (min-width: 728px) {
+      @media screen and (min-width: var.$tablet-breakpoint) {
         margin: 0 16px 0 0;
       }
 
-      @media screen and (min-width: 1120px) {
+      @media screen and (min-width: var.$desktop-breakpoint) {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -151,11 +150,11 @@
       margin-bottom: 12px;
       font-size: var(--card-title-font-size);
       font-weight: 500;
-      line-height: 24px;
+      line-height: var(--line-height);
     }
 
     &-text {
-      font-size: var(--card-font-size);
+      font-size: 16px;
       line-height: 22px;
 
       &:last-child {

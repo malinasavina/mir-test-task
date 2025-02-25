@@ -1,10 +1,18 @@
+@use "variables" as var;
+
+@mixin content-width {
+  margin: 0 auto;
+  width: var(--content-width);
+  max-width: var(--content-max-width);
+}
+
 @mixin section-title {
   margin-bottom: 32px;
   font-weight: 500;
   font-size: var(--title-font-size);
   line-height: 30px;
 
-  @media screen and (min-width: 728px) {
+  @media screen and (min-width: var.$tablet-breakpoint) {
     margin-bottom: 40px;
     line-height: 40px;
   }

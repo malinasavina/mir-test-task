@@ -1,21 +1,20 @@
 @use "../base/mixins" as mixins;
+@use "../base/variables" as var;
 
 .banks {
 
   &__inner {
     padding: var(--y-padding) var(--x-padding);
 
-    @media screen and (min-width: 728px) {
-      margin: 0 auto;
-      width: var(--content-width);
-      max-width: var(--content-max-width);
+    @media screen and (min-width: var.$tablet-breakpoint) {
+      @include mixins.content-width;
     }
   }
 
   &__title {
     @include mixins.section-title();
 
-    @media screen and (min-width: 728px) {
+    @media screen and (min-width: var.$tablet-breakpoint) {
       text-align: center;
     }
   }
@@ -101,7 +100,7 @@
       display: grid;
     }
 
-    @media screen and (min-width: 728px) {
+    @media screen and (min-width: var.$tablet-breakpoint) {
       margin: 0 auto;
       grid-template-columns: repeat(4, minmax(100px, 170px));
       grid-template-rows: repeat(3, 1fr);
