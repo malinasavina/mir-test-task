@@ -45,7 +45,7 @@
     @include mixins.slider();
 
     @media screen and (min-width: var.$tablet-breakpoint) {
-      padding: 40px 20px var(--y-padding) 0;
+      padding: 40px 20px var(--y-padding);
       cursor: pointer;
     }
   }
