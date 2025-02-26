@@ -6,7 +6,7 @@
   background: linear-gradient(180deg, rgba(234,233,255,1) 0%, rgba(255,255,255,1) 50%);
 
   @media screen and (min-width: var.$tablet-breakpoint) {
-    padding: var(--y-padding) 0;
+    padding: var(--y-padding) var(--x-padding) 40px var(--x-padding);
   }
 
   &__inner {
