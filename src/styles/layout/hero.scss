@@ -21,6 +21,14 @@
       flex-direction: row;
     }
   }
+  
+  &__info {
+    margin-bottom: 20px;
+    
+    @media screen and (min-width: var.$desktop-breakpoint) {
+      margin: 0;
+    }
+  }
 
   &__title {
     margin-bottom: 20px;
