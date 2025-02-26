@@ -8,7 +8,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.[contenthash].js',
-    publicPath: '/mir-test-task/',
+    publicPath: process.env.NODE_ENV === 'production' ? '/mir-test-task/' : '/',
     clean: true
   },
   module: {
