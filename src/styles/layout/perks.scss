@@ -4,10 +4,38 @@
 .perks {
 
   &__inner {
+    position: relative;
     padding: var(--y-padding) 0 var(--y-padding) var(--x-padding);
 
     @media screen and (min-width: var.$tablet-breakpoint) {
       @include mixins.content-width;
+    }
+
+    &::before {
+      @include mixins.slider-fade-out();
+      left: 20px;
+      background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 50%);
+
+      @media screen and (min-width: var.$desktop-breakpoint) {
+        left: 0;
+      }
+    }
+
+    &::after {
+      @include mixins.slider-fade-out();
+      right: 0;
+      background: linear-gradient(-90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 50%);
+    }
+
+    &::before,
+    &::after {
+      @media screen and (min-width: var.$tablet-breakpoint) {
+        display: none;
+      }
+
+      @media screen and (min-width: var.$desktop-breakpoint) {
+        display: block;
+      }
     }
   }
 

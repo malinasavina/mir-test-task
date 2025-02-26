@@ -37,3 +37,11 @@
   overflow: visible; /* Отключаем горизонтальный скролл */
   scroll-snap-type: none; /* Отключаем привязку к карточкам */
 }
+
+@mixin slider-fade-out {
+  position: absolute;
+  content: '';
+  bottom: 0;
+  height: 80%;
+  width: 20px;
+}

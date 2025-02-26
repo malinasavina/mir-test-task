@@ -4,7 +4,28 @@
 .cases {
 
   &__inner {
-    padding-top: var(--y-padding);
+    position: relative;
+    padding: var(--y-padding) 0 var(--y-padding) var(--x-padding);
+
+    &::before {
+      @include mixins.slider-fade-out();
+      left: 20px;
+      background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 50%);
+
+      @media screen and (min-width: var.$tablet-breakpoint) {
+        left: 0;
+      }
+    }
+
+    &::after {
+      @include mixins.slider-fade-out();
+      right: 0;
+      background: linear-gradient(-90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 50%);
+    }
+
+    @media screen and (min-width: var.$tablet-breakpoint) {
+      @include mixins.content-width;
+    }
   }
 
   &__title {
@@ -12,10 +33,6 @@
     font-size: var(--title-font-size);
     font-weight: 500;
     line-height: 30px;
-
-    @media screen and (min-width: var.$tablet-breakpoint) {
-      @include mixins.content-width;
-    }
   }
 
   &__list {
@@ -28,10 +45,8 @@
     @include mixins.slider();
 
     @media screen and (min-width: var.$tablet-breakpoint) {
-      padding: 40px 20px var(--y-padding) 20px;
+      padding: 40px 20px var(--y-padding) 0;
       cursor: pointer;
-
-      @include mixins.content-width;
     }
   }
 
