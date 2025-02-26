@@ -48,7 +48,7 @@
 
 ## Деплой
 
-Проект доступен по ссылке: GitHub Pages
+Проект доступен по ссылке: https://malinasavina.github.io/mir-test-task/
 
 ## Технологии
 
