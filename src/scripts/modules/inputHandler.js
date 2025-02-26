@@ -11,11 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }));
 
   searchInput.addEventListener('keydown', function (e) {
-    if (this.value) {
-      if (e.key === 'Enter') {
-        filterBanks();
-        clearInput();
-      }
+    if (this.value && e.key === 'Enter') {
+      filterBanks();
+      clearInput();
     }
   });
 
